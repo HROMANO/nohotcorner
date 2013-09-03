@@ -1,4 +1,8 @@
-/* Version 4 :
+/* 
+Version 5 :
+- update for 3.8
+
+Version 4 :
 - update for 3.6
 
 Version 3 :
@@ -6,21 +10,31 @@ Version 3 :
 */
 
 const Main = imports.ui.main;
+let _id;
+
+function _destroy_hot_corners() {
+    // Destroys all hot corners
+    Main.layoutManager.hotCorners.forEach(function(hot_corner) { hot_corner.destroy(); });
+    Main.layoutManager.hotCorners = [];
+}
 
 function init() {
 }
 
-function enable() { 
-   Main.panel.statusArea['activities'].hotCorner._corner.hide();
-   
-   /* Should disable hotcorners in multiscreen configurations (thanks PierreBdR).
-   Can't try as I only have one screen and the array _hotCorners is always empty
-   (though it's a bit strange). */
-   Main.layoutManager._hotCorners.forEach(function(hotCorner) { hotCorner._corner.hide(); });
+function enable() {
+	_destroy_hot_corners();
+	/* 
+		Hot corners may be re-created afterwards (for example, If there's a monitor change). 
+		So we catch all changes.
+		If it conflicts with another extension adding hotcorners, it could be replaced by :
+		_id = Main.layoutManager.connect('monitors_changed', _destroy_hot_corners);
+	*/
+	_id = Main.layoutManager.connect('hot-corners-changed', _destroy_hot_corners);
 } 
 
-function disable() { 
-   Main.panel.statusArea['activities'].hotCorner._corner.show();
-   Main.layoutManager._hotCorners.forEach(function(hotCorner) { hotCorner._corner.show(); }); 
+function disable() {
+	// Disconnects the callback and re-creates the hot corners
+	Main.layoutManager.disconnect(_id);
+	Main.layoutManager._updateHotCorners();
 }
 
