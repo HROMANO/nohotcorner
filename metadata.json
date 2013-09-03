@@ -3,9 +3,9 @@
   "description": "This extension disables the top left hot corners. You can still click on Activities or press the dedicated key to reach the overview. May not work with other extensions modifying the Activities button. May not disable other hotcorners in multiscreen configurations.", 
   "name": "No Topleft Hot Corner", 
   "shell-version": [
-    "3.6"
+    "3.8"
   ], 
   "url": "", 
   "uuid": "nohotcorner@azuri.free.fr", 
-  "version": 4
+  "version": 5
 }
