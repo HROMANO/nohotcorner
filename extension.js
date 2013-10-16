@@ -27,7 +27,7 @@ function enable() {
 		Hot corners may be re-created afterwards (for example, If there's a monitor change). 
 		So we catch all changes.
 		If it conflicts with another extension adding hotcorners, it could be replaced by :
-		_id = Main.layoutManager.connect('monitors_changed', _destroy_hot_corners);
+		_id = Main.layoutManager.connect('monitors-changed', _destroy_hot_corners);
 	*/
 	_id = Main.layoutManager.connect('hot-corners-changed', _destroy_hot_corners);
 } 
