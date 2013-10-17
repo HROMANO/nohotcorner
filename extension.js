@@ -19,14 +19,14 @@ function _hide_hot_corners_34() {
   // Used for gnome-shell 3.4
   // Hides hot corners
   Main.panel._activitiesButton._hotCorner._corner.hide();
-  Main.layoutManager._hotCorners.forEach(function(hotCorner) { hotCorner._corner.hide(); });
+  Main.layoutManager._hotCorners.forEach(function(hot_corner) { hot_corner._corner.hide(); });
 }
 
 function _hide_hot_corners_36() {
   // Used for gnome-shell 3.6
   // Hides hot corners
   Main.panel.statusArea['activities'].hotCorner._corner.hide();
-  Main.layoutManager._hotCorners.forEach(function(hotCorner) { hotCorner._corner.hide(); });
+  Main.layoutManager._hotCorners.forEach(function(hot_corner) { hot_corner._corner.hide(); });
 }
 
 function init() {
