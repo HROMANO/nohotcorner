@@ -9,7 +9,7 @@ const Config = imports.misc.config;
 let _id;
 
 function _destroy_hot_corners() {
-  // Used for gnome-shell 3.8 and 3.10
+  // Used for gnome-shell 3.8, 3.10 and 3.12
   // Destroys all hot corners
   Main.layoutManager.hotCorners.forEach(function(hot_corner) { hot_corner.destroy(); });
   Main.layoutManager.hotCorners = [];
