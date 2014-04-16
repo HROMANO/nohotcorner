@@ -33,7 +33,7 @@ function init() {
 }
 
 function enable() {
-  if(ExtensionUtils.versionCheck(['3.8', '3.10'], Config.PACKAGE_VERSION)) {
+  if(ExtensionUtils.versionCheck(['3.8', '3.10', '3.12'], Config.PACKAGE_VERSION)) {
     _destroy_hot_corners();
     // Hot corners may be re-created afterwards (for example, If there's a monitor change).
     // So we catch all changes.
