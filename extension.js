@@ -1,5 +1,5 @@
 /*
-Version 7 : Adapt code to support gnome-shell 3.4 to 3.10
+Version 8 : Add support for flashback/fallback
 */
 
 const Main = imports.ui.main;
