@@ -8,11 +8,10 @@ const Config = imports.misc.config;
 
 let _id;
 
-function _destroy_hot_corners() {
+function _disable_hot_corners() {
   // Used for gnome-shell 3.8, 3.10 and 3.12
-  // Destroys all hot corners
-  Main.layoutManager.hotCorners.forEach(function(hot_corner) { hot_corner.destroy(); });
-  Main.layoutManager.hotCorners = [];
+  // Disables all hot corners
+  Main.layoutManager.hotCorners.forEach(function(hot_corner) { hot_corner._toggleOverview = function(){}; });
 }
 
 function _hide_hot_corners_34() {
@@ -34,10 +33,10 @@ function init() {
 
 function enable() {
   if(ExtensionUtils.versionCheck(['3.8', '3.10', '3.12'], Config.PACKAGE_VERSION)) {
-    _destroy_hot_corners();
+    _disable_hot_corners();
     // Hot corners may be re-created afterwards (for example, If there's a monitor change).
     // So we catch all changes.
-    _id = Main.layoutManager.connect('hot-corners-changed', _destroy_hot_corners);
+    _id = Main.layoutManager.connect('hot-corners-changed', _disable_hot_corners);
   }
   if(ExtensionUtils.versionCheck(['3.6'], Config.PACKAGE_VERSION)) {
     _hide_hot_corners_36();
