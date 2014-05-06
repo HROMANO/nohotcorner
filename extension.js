@@ -11,7 +11,11 @@ let _id;
 function _disable_hot_corners() {
   // Used for gnome-shell 3.8, 3.10 and 3.12
   // Disables all hot corners
-  Main.layoutManager.hotCorners.forEach(function(hot_corner) { hot_corner._toggleOverview = function(){}; });
+  Main.layoutManager.hotCorners.forEach(function(hot_corner) { 
+    hot_corner._toggleOverview = function(){};
+    hot_corner._pressureBarrier.destroy();
+    hot_corner._pressureBarrier = null;
+  });
 }
 
 function _hide_hot_corners_34() {
