@@ -13,7 +13,7 @@ function _disable_hot_corners() {
   // Disables all hot corners
   Main.layoutManager.hotCorners.forEach(function(hot_corner) { 
     hot_corner._toggleOverview = function() {};
-    hot_corner.setBarrierSize(0);
+    hot_corner._pressureBarrier._trigger = function() {};
   });
 }
 
