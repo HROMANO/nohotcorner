@@ -1,5 +1,5 @@
 /*
-Version 9 : Add support for flashback/fallback
+Version 9 : Add null checks + be less intrusive
 */
 
 const Main = imports.ui.main;
