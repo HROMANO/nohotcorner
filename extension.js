@@ -1,5 +1,5 @@
 /*
-Version 10 : Update for Gnome Shell 3.14
+Version 11 : Update for Gnome Shell 3.16
 */
 
 const Main = imports.ui.main;
@@ -9,7 +9,7 @@ const Config = imports.misc.config;
 let _id;
 
 function _disable_hot_corners() {
-  // Used for gnome-shell 3.8, 3.10 and 3.12
+  // Used for gnome-shell 3.8 and later
   // Disables all hot corners
   Main.layoutManager.hotCorners.forEach(function(hot_corner) {
     if (!hot_corner) {
