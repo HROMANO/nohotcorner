@@ -1,5 +1,5 @@
 /*
-Version 11 : Update for Gnome Shell 3.16
+Version 12 : Update for Gnome Shell 3.18
 */
 
 const Main = imports.ui.main;
