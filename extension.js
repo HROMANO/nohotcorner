@@ -1,7 +1,3 @@
-/*
-Version 13 : Drop support for gnome-shell < 3.8
-*/
-
 const Main = imports.ui.main;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Config = imports.misc.config;
